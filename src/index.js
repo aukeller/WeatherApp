@@ -11,14 +11,21 @@ async function getTemperature(location, unit) {
     const responseData = await getWeatherData(location);
     const temp = responseData.main.temp;
 
-    if (unit == "farenheit") {
-        return convertToF(temp);
+    if (unit == "F") {
+        console.log(convertToF(temp));
+    } else {
+        console.log(convertToC(temp));
     }
     
 }
 
+async function getDesc(location)
+
 const convertToF = (temp) => {
-    return ((temp - 273.15) * (9 / 5) + 32);
+    return Math.round(((temp - 273.15) * (9 / 5) + 32));
 }
 
-getTemperature('farenheit');
+const convertToC = (temp) => {
+    return Math.round(temp - 273.15);
+}
+
