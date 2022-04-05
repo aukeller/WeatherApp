@@ -1,5 +1,5 @@
 export default function WeatherModule() {
-    async function getWeatherData(location) {
+    async function getAPIData(location) {
         const APIKey = 'e5f7be41d958d90ca7cb6387141e813e';
         
         const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${APIKey}`, {mode: 'cors'});
@@ -8,23 +8,20 @@ export default function WeatherModule() {
         return responseData;
     }
 
-    async function getTemperature(location, unit) {
-        const responseData = await getWeatherData(location);
-        const temp = responseData.main.temp;
+    function getWeatherData(responseData, unit) {
+        let temp = responseData.main.temp;
+        const desc = responseData.weather[0].description;
     
         if (unit == "F") {
-            console.log(convertToF(temp));
+            temp = convertToF(temp);
         } else {
-            console.log(convertToC(temp));
+            temp = convertToC(temp);
         }
         
-    }
-
-    async function getDesc(location) {
-        const responseData = await getWeatherData(location);
-        const desc = responseData.weather[0].main;
-    
-        console.log(desc);
+        return {
+            temperatue: temp,
+            description: desc
+        }
     }
 
     const convertToF = (temp) => {
@@ -35,7 +32,7 @@ export default function WeatherModule() {
         return Math.round(temp - 273.15);
     }
 
-    return { getTemperature, getDesc};
+    return { getAPIData, getWeatherData};
     
 }
 
