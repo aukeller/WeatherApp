@@ -10,6 +10,7 @@ export default function WeatherModule() {
 
     function getWeatherData(responseData, unit) {
         let temp = responseData.main.temp;
+        const main = responseData.weather[0].id;
         const desc = responseData.weather[0].description;
     
         if (unit == "F") {
@@ -20,7 +21,8 @@ export default function WeatherModule() {
         
         return {
             temperatue: temp,
-            description: desc
+            description: desc,
+            main: main,
         }
     }
 
