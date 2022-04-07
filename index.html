@@ -9,18 +9,25 @@
 <body>
     <div class="container">
         <div class="search-container">
-            <form action="#">
-                <input type="text">
+            <div class="search-form">
+                <input type="text" placeholder="Enter a location">
                 <button type="button">Get Weather</button>
-            </form>
+                <div class="unit-radio">
+                    <input type="radio" name="unit" id="F" value="F">
+                    <label for="F">Farenheit</label>
+
+                    <input type="radio" name="unit" id="C" value="C">
+                    <label for="C">Celsius</label>
+                </div>
+            </div>
+
         </div>
         <div class="display-container">
             <div class="temperature">
-
-            </div>
-            <div class="description">
                 
             </div>
+            <div class="description"></div>
+
         </div>
     </div>
     <script src="./main.js"></script>
