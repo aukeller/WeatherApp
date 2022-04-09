@@ -1,4 +1,4 @@
-import '.style.css';
+import './style.css';
 import  WeatherModule from "./WeatherModule";
 
 const weather = WeatherModule();
