@@ -12,10 +12,18 @@ const tempDesc = document.querySelector('.description');
 
 const radioBtns = document.querySelectorAll('input[type="radio"');
 
+const loadingComponent = document.querySelector('.loading-component');
+
+
 getWeatherBtn.addEventListener('click', function() {
     const unit = setUnit();
+
+    loadingComponent.hidden = false;
+
     weather.getAPIData(locationInput.value)
     .then((response) => {
+        loadingComponent.hidden = true;
+
         const weatherData = weather.getWeatherData(response, unit);
 
         tempDisplay.textContent = `${weatherData.temperatue}\u00B0`;

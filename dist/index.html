@@ -9,11 +9,11 @@
 <body>
     <div class="container">
         <div class="search-container">
-            <form>
+            <form action="#">
                 <input type="text" placeholder="Enter a location">
                 <button type="button">Get Weather</button>
                 <div class="unit-radio">
-                    <input type="radio" name="unit" id="F" value="F">
+                    <input type="radio" name="unit" id="F" value="F" checked>
                     <label for="F">Farenheit</label>
 
                     <input type="radio" name="unit" id="C" value="C">
@@ -23,6 +23,7 @@
 
         </div>
         <div class="display-container">
+            <div class="loading-component" hidden>Loading...</div>
             <div class="temperature">
                 
             </div>
